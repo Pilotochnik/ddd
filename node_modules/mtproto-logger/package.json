@@ -1,0 +1,46 @@
+{
+  "name": "mtproto-logger",
+  "version": "0.1.9",
+  "description": "",
+  "main": "lib/index.js",
+  "jsnext:main": "es/index.js",
+  "module": "es/index.js",
+  "scripts": {
+    "build": "npm run build:cjs && npm run build:es",
+    "build:cjs": "cross-env BABEL_ENV=commonjs babel src/ -d lib -s",
+    "build:es": "babel src/ -d es -s",
+    "clean": "rimraf es/ && rimraf lib/",
+    "prepublish": "npm run clean && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "types": "flow-copy-source src lib && flow-copy-source src es",
+    "watch:cjs": "npm run build:cjs -- --watch"
+  },
+  "files": [
+    "lib",
+    "src",
+    "es"
+  ],
+  "dependencies": {
+    "array-flatten": "^2.1.1",
+    "chalk": "^2.1.0",
+    "debug": "^2.6.8",
+    "eventemitter2": "^4.1.2",
+    "most": "^1.7.1",
+    "mtproto-shared": "^0.1.8"
+  },
+  "devDependencies": {
+    "@types/chalk": "^0.4.31",
+    "@types/debug": "0.0.30",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "cross-env": "^5.0.5",
+
+    "flow-copy-source": "^1.2.1",
+    "rimraf": "^2.6.2"
+  },
+  "author": "Zero Bias",
+  "license": "MIT"
+}

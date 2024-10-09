@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <title>SlotJS Telegram Game</title>
+</head>
+<body>
+  <h1>Добро пожаловать в игру SlotJS!</h1>
+  <button id="startGame">Начать игру</button>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const tg = window.Telegram.WebApp;
+
+      // Настройка основной кнопки Telegram
+      tg.MainButton.setText("Начать игру");
+      tg.MainButton.show();
+
+      // Логирование состояния
+      console.log("Telegram WebApp Инициализирован");
+
+      // Взаимодействие с основной кнопкой
+      tg.MainButton.onClick(() => {
+        window.location.href = "https://macaque-nice-lion.ngrok-free.app"; // Перенаправление на игру
+      });
+
+      // Использование обычной кнопки
+      document.getElementById("startGame").addEventListener("click", () => {
+        tg.MainButton.onClick(); // Вызываем действие основной кнопки
+      });
+    });
+  </script>
+</body>
+</html>
